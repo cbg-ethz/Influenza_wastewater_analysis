@@ -1,0 +1,45 @@
+library(tidyverse)
+library(scales)
+library(ggplot2)
+
+
+#TODO: remove before making public
+setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_2")
+source("helper_functions.R")
+
+out_dir = "/Users/anjohn/Desktop/manuscripts/Influenza/Figures/"
+
+
+H1_ampCov <- fread("H1_comb_ampCoverage.tsv")
+H3_ampCov <- fread("H3_comb_ampCoverage.tsv")
+
+N1_ampCov <- fread("N1_comb_ampCoverage.tsv")
+N2_ampCov <- fread("N2_comb_ampCoverage.tsv")
+
+HA_ampCov <- rbind(H1_ampCov,H3_ampCov)
+NA_ampCov <- rbind(N1_ampCov,N2_ampCov)
+M_ampCov <- fread("M_comb_ampCoverage.tsv")
+
+
+HA_plot = amplicon_plotting(HA_ampCov)
+NA_plot = amplicon_plotting(NA_ampCov)
+M_plot = amplicon_plotting(M_ampCov)
+
+
+
+ggsave(paste0(out_dir,"FIG2_A_HA.png"),
+         plot = HA_plot, width = 10.5, 
+       height = 5, units = "in", dpi = 600)
+
+ggsave(paste0(out_dir,"FIG2_A_NA.png"),
+       plot = NA_plot, width = 10.5, 
+       height = 5, units = "in", dpi = 600)
+
+ggsave(paste0(out_dir,"FIG2_A_M.png"),
+       plot = M_plot, width = 10.5, 
+       height = 5, units = "in", dpi = 600)
+
+
+
+
+
