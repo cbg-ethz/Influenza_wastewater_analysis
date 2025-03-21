@@ -1,0 +1,34 @@
+##fileformat=VCFv4.0
+##fileDate=20240904
+##source=lofreq call --call-indels -f references/WHO/H3_bangladesh.fasta -o results_Aire_WHO/barcode03/batch1/variants/SNVs/snvs.vcf --verbose results_Aire_WHO/barcode03/batch1/variants/SNVs/REF_aln_indelqual.bam 
+##reference=references/WHO/H3_bangladesh.fasta
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Raw Depth">
+##INFO=<ID=AF,Number=1,Type=Float,Description="Allele Frequency">
+##INFO=<ID=SB,Number=1,Type=Integer,Description="Phred-scaled strand bias at this position">
+##INFO=<ID=DP4,Number=4,Type=Integer,Description="Counts for ref-forward bases, ref-reverse, alt-forward and alt-reverse bases">
+##INFO=<ID=INDEL,Number=0,Type=Flag,Description="Indicates that the variant is an INDEL.">
+##INFO=<ID=CONSVAR,Number=0,Type=Flag,Description="Indicates that the variant is a consensus variant (as opposed to a low frequency variant).">
+##INFO=<ID=HRUN,Number=1,Type=Integer,Description="Homopolymer length to the right of report indel position">
+##FILTER=<ID=min_dp_10,Description="Minimum Coverage 10">
+##FILTER=<ID=sb_fdr,Description="Strand-Bias Multiple Testing Correction: fdr corr. pvalue > 0.001000">
+##FILTER=<ID=min_snvqual_47,Description="Minimum SNV Quality (Phred) 47">
+##FILTER=<ID=min_indelqual_44,Description="Minimum Indel Quality (Phred) 44">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	57	.	GT	G	54	PASS	DP=94;AF=0.063830;SB=1;DP4=40,48,2,4;INDEL;HRUN=4
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	122	.	AG	A	53	PASS	DP=95;AF=0.084211;SB=20;DP4=42,45,0,8;INDEL;HRUN=1
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	138	.	A	G	382	PASS	DP=96;AF=0.333333;SB=5;DP4=25,36,17,15
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	143	.	G	GA	52	PASS	DP=96;AF=0.031250;SB=5;DP4=42,51,0,3;INDEL;HRUN=4
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	205	.	C	CA	63	PASS	DP=96;AF=0.041667;SB=8;DP4=42,49,0,4;INDEL;HRUN=2
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	213	.	G	A	2747	PASS	DP=96;AF=0.927083;SB=2;DP4=2,1,38,51
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	222	.	G	A	2049	PASS	DP=96;AF=0.906250;SB=7;DP4=4,1,38,50
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	248	.	AG	A	67	PASS	DP=96;AF=0.083333;SB=30;DP4=34,54,8,0;INDEL;HRUN=3
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	277	.	TG	T	50	PASS	DP=96;AF=0.072917;SB=3;DP4=40,46,2,5;INDEL;HRUN=5
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	305	.	A	G	830	PASS	DP=96;AF=0.583333;SB=6;DP4=20,18,22,36
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	321	.	C	CT	137	PASS	DP=96;AF=0.072917;SB=26;DP4=35,54,7,0;INDEL;HRUN=5
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	321	.	CT	C	104	PASS	DP=96;AF=0.062500;SB=4;DP4=37,52,4,2;INDEL;HRUN=5
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	334	.	GA	G	45	PASS	DP=96;AF=0.031250;SB=5;DP4=42,50,0,3;INDEL;HRUN=2
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	339	.	A	G	383	PASS	DP=96;AF=0.333333;SB=4;DP4=25,38,16,16
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	352	.	A	G	3061	PASS	DP=94;AF=0.968085;SB=0;DP4=0,0,39,53
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	413	.	C	A	2580	PASS	DP=90;AF=0.977778;SB=0;DP4=0,0,38,51
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	429	.	A	G	815	PASS	DP=87;AF=0.574713;SB=0;DP4=13,20,22,31
+A.Bangladesh.4005.2020.EPI_ISL_16947004|HA	449	.	T	C	114	PASS	DP=16;AF=0.625000;SB=4;DP4=2,3,7,3
