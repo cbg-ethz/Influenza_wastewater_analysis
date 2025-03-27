@@ -42,6 +42,7 @@ mybreaks <- function(x) {
   x
 }
 
+global_limits <- c(1, 10^5)
 
 coverage_plotting = function(dt){
   
@@ -55,6 +56,7 @@ coverage_plotting = function(dt){
     scale_y_log10("Read Depth",
                   breaks = trans_breaks("log10", function(x) 10^x[x != 0], n=3),
                   labels = trans_format("log10", math_format(10^.x))
+                  
     )+
     scale_x_continuous("Position", 
                        breaks = mybreaks,
@@ -70,14 +72,14 @@ coverage_plotting = function(dt){
           strip.text.y = element_text(size = 27.5),
           panel.background = element_rect(fill = "white",
                                           colour = "white",
-                                          size = 0.5),
+                                          linewidth = 0.5),
           panel.grid.major = element_line(size = 0.25, linetype = 'solid',
                                           colour = "lightgrey"), 
           panel.grid.minor = element_blank(),
           panel.border = element_rect(colour = "lightgrey", 
                                       fill=NA, 
                                       linewidth=1))+
-    facet_grid(vars(Place_f),vars(Season))
+    facet_grid(vars(Place_f),vars(Season)) 
   
   return(list(plot = p, plot_data = dt))
   
@@ -96,7 +98,8 @@ amplicon_plotting = function(dt){
     facet_grid(cols = vars(Season))+
     scale_y_log10("Read Count",
                   breaks = trans_breaks("log10", function(x) 10^x[x != 0], n=3),
-                  labels = trans_format("log10", math_format(10^.x))
+                  labels = trans_format("log10", math_format(10^.x)),
+                  limits = global_limits
     )+ 
     scale_x_discrete(labels= c('1','2','3','4','5','6'),name = "Amplicon")+
     theme(legend.position="bottom",

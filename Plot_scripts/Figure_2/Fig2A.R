@@ -29,15 +29,15 @@ M_plot = amplicon_plotting(M_ampCov)
 
 ggsave(paste0(out_dir,"FIG2_A_HA.png"),
          plot = HA_plot, width = 10.5, 
-       height = 5, units = "in", dpi = 600)
+       height = 6, units = "in", dpi = 600)
 
 ggsave(paste0(out_dir,"FIG2_A_NA.png"),
        plot = NA_plot, width = 10.5, 
-       height = 5, units = "in", dpi = 600)
+       height = 6, units = "in", dpi = 600)
 
 ggsave(paste0(out_dir,"FIG2_A_M.png"),
        plot = M_plot, width = 10.5, 
-       height = 5, units = "in", dpi = 600)
+       height = 6, units = "in", dpi = 600)
 
 
 

@@ -76,10 +76,12 @@ theme(text = element_text(size = 18),
                                   linewidth=1),
       axis.title.x = element_text(margin = margin(t = 20)),  
       axis.title.y = element_text(margin = margin(r = 20)),
-      plot.margin = margin(t = 45, r = 20, b = 15, l = 10))
+      plot.margin = margin(t = 20, r = 20, b = 15, l = 10))
+
+p
 
 ggsave("AbundanceEstimatesH1_Correlation_5a2a_readcount.png", 
-       plot = p, width = 8, height = 5, units = "in", dpi = 600)
+       plot = p, width = 8, height = 6., units = "in", dpi = 600)
 
 
 
