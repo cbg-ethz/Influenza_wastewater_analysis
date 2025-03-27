@@ -42,9 +42,15 @@ dt_plot_long$data_source <- factor(dt_plot_long$data_source,
 
 dt_unassaigned = dt_plot_long %>% 
   group_by(week,year,data_source) %>% 
-  summarise(relative_abundance = round(1-sum(relative_abundance),3))
+  summarise(relative_abundance = round(1-sum(relative_abundance),3)) %>% 
+  setDT()
 
 dt_unassaigned[["Clade"]] = "unassigned"
+
+#Wastewater
+median_unassigned = median(dt_unassaigned[data_source == 'Wastewater Data Geneva'][['relative_abundance']]) 
+mean_unassigned = mean(dt_unassaigned[data_source == 'Wastewater Data Geneva'][['relative_abundance']])
+
 
 
 dt_plot = bind_rows(dt_plot_long,dt_unassaigned) %>% 
@@ -114,9 +120,6 @@ Fig3B <- ggplot(dt %>% filter(Clade == "6B.1A.5a.2a" & week != 52)) +
               method = "lm",na.rm = TRUE, 
               color = "black", alpha = 0.3, size = 1)+
   facet_wrap(vars(Clade),scales = "free")+
-  # geom_text(aes(x = logit(relative_abundance_gisaid), 
-  #               y = logit(relative_abundance_ww_deconv_lin)),
-  #           size = 3, vjust = -1, hjust = -0.1, color = "black")+
   geom_text(data = lm_models %>% filter(Clade == "6B.1A.5a.2a"),
             aes(x = Inf, y = Inf,
                 label = paste("adj. R² = ", round(adj_r2, 2))),
