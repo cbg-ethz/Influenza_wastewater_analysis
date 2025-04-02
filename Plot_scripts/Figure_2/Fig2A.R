@@ -41,5 +41,12 @@ ggsave(paste0(out_dir,"FIG2_A_M.png"),
 
 
 
+##### Mean HA read count incld. time series data #####
 
+H1_ampCov_time <- fread("H1_timeseries_ampCoverage.tsv", header = TRUE)
+H1_mean_time = mean(colMeans(H1_ampCov_time[,-1]))
 
+H3_ampCov_time <- fread("H3_timeseries_ampCoverage.csv", header = TRUE)
+H3_mean_time = mean(colMeans(H3_ampCov_time[,-1]))
+
+HA_mean_readcount = mean(H1_mean_time,H3_mean_time, mean(HA_ampCov$read_count))

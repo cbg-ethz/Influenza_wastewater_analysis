@@ -129,21 +129,6 @@ fit.nb <- glmmTMB(mean_pos_coverag_round ~ concentration +
 summary(fit.nb)
 
 
-# fit.nb2 <- glmmTMB(mean_pos_coverag_round ~ concentration2 + 
-#                     Subtype +
-#                     Segment:Subtype+
-#                     Experiment+
-#                     Place+
-#                     (1 | name) +
-#                     (1 | Season),
-#                   data = dt_model, 
-#                   ziformula = ~ 1,
-#                   family = nbinom2)
-# 
-# summary(fit.nb2)
-
-
-
 
 
 
