@@ -14,7 +14,7 @@ Raw sequencing reads were processed using the bioinformatics pipeline [**V-pipe*
 
 **i)** Configuration files
 - specifies settings for different steps within pipeline
-- for each data set/ analysis discussed in the publication we provide a configuration file template (see work work-IA_XX/v-pipe/v-pipe_configFiles)
+- for each data set/ analysis discussed in the publication we provide a configuration file template (see work ``work-IA_XX/v-pipe/v-pipe_configFiles``)
   
 **ii)** Raw fastq files
 - In our study, we sequenced using MinION Mk1C, basecalling was performed using the Dorado pipeline (Version 7.3.11)
@@ -22,4 +22,13 @@ Raw sequencing reads were processed using the bioinformatics pipeline [**V-pipe*
 - Path to raw data needs to be specified in configuration file
 
 **iii)** Samples file
-- Specifies 
+- Specifies which samples (``barcode_xx/batch_yy``) to process (see, ``work-IA_XX/v-pipe/samples_zz``)
+
+<ins>**OUTPUTS**</ins>
+
+For each data set and the corresponding analysis, a results directory with the structure ``work-IA_XX/v-pipe/results/barcode_xx/batch_yy`` is generated. Per sample (``barcode_xx``) they contain various (intermediate) outputs of the pipeline. As the entire output can become memory heavy we only provide selected example outputs.
+
+
+
+
+
