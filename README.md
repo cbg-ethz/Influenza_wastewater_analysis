@@ -36,6 +36,19 @@ For each data set and the corresponding analysis, a results directory with the s
 
 Using the output of the V-pipe alignment step, LolliPop (Version 0.5.1) was applied to estimate the relative abundance of H1N1 clades, in the time-series wastewater dataset.
 
+<ins>**2.1 Set-up**</ins>
+
+Install the LolliPop commandline tool via conda, as described [here](https://github.com/cbg-ethz/LolliPop?tab=readme-ov-file#installation). 
+
+<ins>**2.2 Input**</ins>
+> - Estimates were based on H1 signature muations defined in ``work-IA_H1/v-pipe/vocs``
+> - Next, ``work-IA_H1/v-pipe/lollipop.sh`` was run to calculate abundance estimation
+
+<ins>**2.3 Output**</ins>
+> - Output is a table with the relative abundance of the clades of interest by location and date
+
 ### 3. Converting Nucleotides to amino acids
+
+For analyses that require conversion of nucleotides to amino acids we used the functions provided [here](https://github.com/anikajohn/AA_mutationAnalysis_IAV).
 
 
