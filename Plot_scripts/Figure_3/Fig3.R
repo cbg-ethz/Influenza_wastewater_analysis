@@ -8,7 +8,8 @@ library(RColorBrewer)
 
 setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_3")
 
-dt = fread("dt_Fig3B.tsv")
+#output of DataCleaning.R
+dt = fread("dt_test.tsv")
 
 out_dir = "/Users/anjohn/Desktop/manuscripts/Influenza/Figures/"
 
@@ -118,7 +119,7 @@ Fig3B <- ggplot(dt %>% filter(Clade == "6B.1A.5a.2a" & week != 52)) +
   geom_smooth(aes(x = logit(relative_abundance_gisaid),
                   y = logit(relative_abundance_ww_deconv_lin)),
               method = "lm",na.rm = TRUE, 
-              color = "black", alpha = 0.3, size = 1)+
+              color = "black", alpha = 0.3, linewidth = 1)+
   facet_wrap(vars(Clade),scales = "free")+
   geom_text(data = lm_models %>% filter(Clade == "6B.1A.5a.2a"),
             aes(x = Inf, y = Inf,
@@ -129,7 +130,6 @@ Fig3B <- ggplot(dt %>% filter(Clade == "6B.1A.5a.2a" & week != 52)) +
   ylab("logit(Abundance estimate\n wastewater data)")+
   theme(text = element_text(size = 18),
         legend.position="none",
-        # strip.text = element_text(size = 22),
         panel.background = element_rect(fill = "white",
                                         colour = "white",
                                         linewidth = 0.5),

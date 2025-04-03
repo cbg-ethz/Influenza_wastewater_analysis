@@ -1,0 +1,13 @@
+variant:
+  short: '5a2a' #  this should  be machine friendly
+  pangolin: '6B.1A.5a.2a'
+mut:
+  742: 'A>C'
+  847: 'G>A'
+  900: 'A>A'
+
+
+
+
+
+
