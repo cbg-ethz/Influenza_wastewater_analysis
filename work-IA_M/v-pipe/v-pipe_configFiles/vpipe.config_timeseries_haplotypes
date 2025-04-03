@@ -1,0 +1,53 @@
+[general]
+aligner = minimap
+primers_trimmer = samtools
+threads = 6
+snv_caller = viloca
+temp_prefix =  xxx #directory for temporary files
+preprocessor = skip
+
+[input]
+datadir = xxx #path to raw data
+samples_file = samples_timeseries_haplotypes.tsv
+paired = False
+reference = references/nextstrain/M.fasta
+primers_bedfile = references/primers/M_primers.bed
+inserts_bedfile = references/primers/M_scheme.insert.bed
+
+[output]
+datadir = results_timeseries
+trim_primers = True
+snv = True
+local = False
+global = False
+QA = False
+diversity = False
+
+[minimap_align]
+preset = map-ont
+
+[gunzip]
+mem=100000
+
+[sam2bam]
+mem=5000
+
+[ref_bwa_index]
+mem=65536
+
+[lofreq]
+consensus = false
+
+[viloca]
+merge_paired_end_reads = false
+consensus = false
+amp3 shortend, so viloca recognizes window
+insert_bedfile = references/nextstrain/HA_scheme.insert_mod.bed
+extra = --NO-strand_bias_filter --min_windows_coverage 1 --win_coverage 5 --threshold 0.0
+
+[snv]
+consensus = false
+localscratch = $TMPDIR
+time = 240
+mem = 1024
+threads = 64

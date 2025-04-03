@@ -1,0 +1,46 @@
+[general]
+aligner = minimap
+primers_trimmer = samtools
+threads = 6
+snv_caller = lofreq
+temp_prefix = xxx #directory for temporary files
+preprocessor = skip
+
+[input]
+datadir = xxx #path to raw data
+samples_file = samples_experiment_1.tsv
+paired = False 
+reference = references/nextstrain/N1.fasta
+primers_bedfile = references/primers/NA_primers.bed
+inserts_bedfile = references/nextstrain/NA_scheme.insert_mod.bed
+
+[output]
+datadir = results_experiment_1
+trim_primers = True
+snv = True
+local = False
+global = False
+QA = False
+diversity = False
+
+[minimap_align]
+preset = map-ont
+
+[gunzip]
+mem=100000
+
+[sam2bam]
+mem=5000
+
+[ref_bwa_index]
+mem=65536
+
+[lofreq]
+consensus = false
+
+[snv]
+consensus = false
+localscratch = $TMPDIR
+time = 240
+mem = 1024
+threads = 64
