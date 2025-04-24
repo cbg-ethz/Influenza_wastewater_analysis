@@ -2,7 +2,7 @@
 
 Influenza A virus poses significant public health challenges, causing seasonal outbreaks and pandemics. Its rapid evolution motivates continuous monitoring of circulating influenza genomes to inform vaccine and antiviral development. Wastewater-based surveillance offers an unbiased, cost-effective approach for genomic surveillance. We developed a tiling amplicon primer panel for wastewater-based genomic surveillance of influenza A virus, targeting segments of the surface proteins HA, NA, and M of subtypes H1N1 and H3N2. Using this panel, we sequenced nucleic acid extracts from 59 Swiss wastewater samples collected at four locations during the 2022/2023 and 2023/2024 winter seasons.
 
-**In this repo we present the bioinformatic tools and configurations needed to generate the results presented in our publication xxx. Furthur we provide the scripts needed to generate the figures presented in the publication.**
+**In this repo we present the bioinformatic tools and configurations needed to generate the results presented in our publication [Wastewater sequencing reveals the genomic landscape of Influenza A virus in Switzerland] (https://www.medrxiv.org/content/10.1101/2025.04.17.25325990v1). Furthur we provide the scripts needed to generate the figures presented in the publication.**
 
 ## Main analysis steps
 
