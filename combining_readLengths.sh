@@ -1,8 +1,7 @@
 
 #!/bin/sh
 
-
-#ADD read length script
+#1. excecute readLength.sh on samples of interest
 
 #$1 = path to results directory (v-pipe output) of interest 
 target_dir=$1
