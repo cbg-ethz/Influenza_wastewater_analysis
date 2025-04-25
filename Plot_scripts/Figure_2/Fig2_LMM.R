@@ -4,8 +4,7 @@ library(data.table)
 library(DHARMa)
 library(glmmTMB)
 
-#TODO: remove before making public
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_2")
+# setwd("path_to_Figure_2")
 source("helper_functions.R")
 
 #####LOADING DATA#####

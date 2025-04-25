@@ -3,9 +3,17 @@ library(tidyverse)
 library(boot)
 library(ggplot2)
 
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_3/")
+# setwd("path_to_Figure_3/")
 
-#Metadata as provided by Gisaid
+##### !!!! PLEASE DOWNLOAD THE METADATA YOURSELF !!!! ######
+
+#for legal reasons we cannot publicly provide Gisaid metadata, 
+#therefore you have to generate it yourself.
+
+#1. Get access to EpiFlu dataset on Gisaid (https://www.epicov.org/epi3/frontend#26c658)
+#2. With the IDs provided in Source Data 2, download the metadata file (metadata.tsv.zst)
+#3. Store this file in the same directory as this script
+
 meta_dt = fread("zstdcat metadata.tsv.zst")
 
 

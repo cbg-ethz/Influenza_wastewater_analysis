@@ -6,10 +6,10 @@ library(RColorBrewer)
 
 
 
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_3")
+# setwd("path_to_Figure_3")
 
 #output of DataCleaning.R
-dt = fread("dt_test.tsv")
+dt = fread("dt_Fig3B.tsv")
 
 out_dir = "/Users/anjohn/Desktop/manuscripts/Influenza/Figures/"
 
@@ -90,8 +90,8 @@ Fig3A <- ggplot(dt_plot, aes(group=Clade))+
         axis.title.y = element_text(margin = margin(r = 20)),
         panel.background = element_rect(fill = "white",
                                         colour = "white",
-                                        size = 0.5),
-        panel.grid.major = element_line(size = 0.25, linetype = 'solid',
+                                        linewidth = 0.5),
+        panel.grid.major = element_line(linewidth = 0.25, linetype = 'solid',
                                         colour = "lightgrey"), 
         panel.grid.minor = element_blank(),
         panel.border = element_rect(colour = "lightgrey", 

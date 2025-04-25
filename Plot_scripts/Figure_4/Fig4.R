@@ -5,8 +5,8 @@ library(gridExtra)
 library(ggforce)
 library(ggh4x)
 
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_4/")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_4/Data_cleaning.R")
+# setwd("path_to_Figure_4")
+source("Data_cleaning_N1.R")
 
 dt_plot = dt_clean_N1
 
