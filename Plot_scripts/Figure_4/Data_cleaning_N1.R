@@ -1,10 +1,11 @@
 library(tidyverse)
 library(data.table)
+library(devtools)
 
 # setwd("path_to_Figure_4")
 
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/AA_mutationAnalysis_IAV/mutationTranslation.R")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/AA_mutationAnalysis_IAV/readingFunctions.R")
+source("https://raw.githubusercontent.com/anikajohn/AA_mutationAnalysis_IAV/refs/heads/main/mutationTranslation.R")
+source("https://raw.githubusercontent.com/anikajohn/AA_mutationAnalysis_IAV/refs/heads/main/readingFunctions.R")
 
 
 dir_euler <- '/Users/anjohn/Desktop/euler/wastewater/Influenza/work-IA_N1/v-pipe/'

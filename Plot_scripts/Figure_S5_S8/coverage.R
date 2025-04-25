@@ -6,11 +6,10 @@ library(data.table)
 library(ggh4x)
 library(stringr)
 
-#TODO: remove before making public
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_S5_S6")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_2/helper_functions.R")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_4/Data_cleaning_N1.R")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_5/Data_cleaning_H1.R")
+# setwd("path_to_Figure_S5_S8/")
+source("../Figure_2/helper_functions.R")
+source("../Figure_4/Data_cleaning_N1.R")
+source("../Figure_5/Data_cleaning_H1.R")
 
 
 timeseries_trans_file = "../sample_mapping/samples_Info_timeseries.csv"

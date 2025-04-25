@@ -2,8 +2,8 @@ library(data.table)
 library(tidyverse)
 library(ggplot2)
 
-#TODO
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_SX/")
+
+setwd("path_to_Figure_S7/")
 
 #### READ IN DATA ####
 

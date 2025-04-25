@@ -1,12 +1,11 @@
 library(tidyverse)
 library(data.table)
 
-#TODO: needs cleaning
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_5/")
 
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/AA_mutationAnalysis_IAV/mutationTranslation.R")
-source("/Users/anjohn/Desktop/euler/wastewater/Influenza/AA_mutationAnalysis_IAV/readingFunctions.R")
-# source("/Users/anjohn/projects/wastewater/influenza/readingFunctions.R")
+# setwd("path_to_Figure_5/")
+
+source("https://raw.githubusercontent.com/anikajohn/AA_mutationAnalysis_IAV/refs/heads/main/mutationTranslation.R")
+source("https://raw.githubusercontent.com/anikajohn/AA_mutationAnalysis_IAV/refs/heads/main/readingFunctions.R")
 
 
 dir_euler <- '/Users/anjohn/Desktop/euler/wastewater/Influenza/work-IA_H1/v-pipe/'

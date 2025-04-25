@@ -5,9 +5,7 @@ library(Biostrings)
 library(data.table)
 library(stringr)
 
-#TODO: remove before making public
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_S4")
-
+# setwd("path_to_Figure_S4/")
 
 
 formatting_dt <- function(file,

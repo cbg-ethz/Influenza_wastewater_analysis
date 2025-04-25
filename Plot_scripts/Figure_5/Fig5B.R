@@ -4,8 +4,8 @@ library(seqinr)
 library(ggmsa)
 library(RColorBrewer)
 
-#TODO:remove concrete path
-setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_5/")
+
+# setwd("path_to_Figure_5/")
 source("helper_functions.R")
 
 dir <- '../../work-IA_M/v-pipe/results_timeseries'

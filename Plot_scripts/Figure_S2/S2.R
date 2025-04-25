@@ -1,7 +1,7 @@
 library(reader)
 library(ggplot2)
 
-# setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_S2/")
+# setwd("path_to_Figure_S2/")
 
 #generated using 1) ../../readLength.sh & 2) ../../combining_readLengths.sh
 read_len_ex1 = fread('../../rawData_summary/experimet_1_readLengths_combined.tsv.gz')
