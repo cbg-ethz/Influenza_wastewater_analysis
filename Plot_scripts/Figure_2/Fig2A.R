@@ -6,8 +6,9 @@ library(ggplot2)
 # setwd("path_to_Figure_2")
 source("helper_functions.R")
 
-out_dir = "/Users/anjohn/Desktop/manuscripts/Influenza/Figures/"
+out_dir = "path_of_your_choice"
 
+##ampCoverage.tsv FILES WERE GENERATED using run_ampCov.sh ####
 
 H1_ampCov <- fread("H1_comb_ampCoverage.tsv")
 H3_ampCov <- fread("H3_comb_ampCoverage.tsv")
