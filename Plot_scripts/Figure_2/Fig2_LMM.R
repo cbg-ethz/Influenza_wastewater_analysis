@@ -4,7 +4,7 @@ library(data.table)
 library(DHARMa)
 library(glmmTMB)
 
-# setwd("path_to_Figure_2")
+setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_2/")
 source("helper_functions.R")
 
 #####LOADING DATA#####
@@ -105,7 +105,7 @@ dt_model[["week"]] = strftime(as.Date(dt_model$Date, format="%Y_%m_%d"),
 dt_model$conc_transformed = dt_model$concentration * 2
 
 
-##### MODELLING ####
+##### MODELLING ZERO-INFLATION ####
 
 #Zero-inflation visualized
 
@@ -166,6 +166,182 @@ plotResiduals(simulationOutput, dt_model$Experiment)
 plotResiduals(simulationOutput, dt_model$Season)
 # plotResiduals(simulationOutput, dt_model$Experiment)
 plotResiduals(simulationOutput, dt_model$name)
+
+
+
+
+##### MODEL TO INTEGRATE AMPLICONS ####
+
+H1_ampCov <- fread("H1_comb_ampCoverage.tsv")
+H1_ampCov[, ':='(Segment="HA",
+             Subtype="H1N1",
+             Segment_Subtype="H1")]
+
+
+
+H3_ampCov <- fread("H3_comb_ampCoverage.tsv")
+H3_ampCov[, ':='(Segment="HA",
+                 Subtype="H3N2",
+                 Segment_Subtype="H3")]
+
+
+N1_ampCov <- fread("N1_comb_ampCoverage.tsv")
+N1_ampCov[, ':='(Segment="NA",
+                 Subtype="H1N1",
+                 Segment_Subtype="N1")]
+
+
+N2_ampCov <- fread("N2_comb_ampCoverage.tsv")
+N2_ampCov[, ':='(Segment="NA",
+                 Subtype="H3N2",
+                 Segment_Subtype="N2")]
+
+HA_ampCov <- rbind(H1_ampCov,H3_ampCov)
+NA_ampCov <- rbind(N1_ampCov,N2_ampCov)
+
+
+M_ampCov <- fread("M_comb_ampCoverage.tsv")
+M_ampCov[, ':='(Segment="M",
+            Subtype="M_both",
+            Segment_Subtype="none")]
+
+
+
+dt_amp_model = rbind(HA_ampCov,NA_ampCov,M_ampCov)
+
+dt_amp_model = dt_amp_model %>%
+  mutate(
+    Experiment = case_when(
+    rerun == 'no' ~ "ex1",
+    rerun == 'yes' ~ "ex2",
+    TRUE ~ NA),
+    name = sample,
+    amplicon_uniq = paste0(amplicon,Segment)
+  
+  
+  )
+
+
+
+#OPTIMISE THIS:
+#-not sore if can do amplicon by itself as NA amp1 != HA amp1
+
+
+
+fit.nb.amp <- glmmTMB(read_count ~  
+                        amplicon+
+                        # amplicon_uniq +
+                        # amplicon:Segment+
+                        # Segment:Subtype+
+                        # Subtype,
+                        # Experiment+
+                        # Place+
+                        (1 | Subtype),
+                      data = dt_amp_model[Segment == 'HA'], 
+                      ziformula = ~ 1,
+                      family = nbinom2)
+
+summary(fit.nb.amp)
+simulationOutput <- simulateResiduals(fittedModel = fit.nb.amp, plot = T)
+simulateResiduals(fittedModel = fit.nb.amp, plot = T)
+
+
+
+#Dispersion of the fitted model is not significant
+testDispersion(fit.nb.amp)
+testZeroInflation(simulationOutput)
+testResiduals(fit.nb.amp)
+
+#HOMOGENEITY OF VARIANCE IS MET FOR RANDOM EFFECTS
+testCategorical(simulationOutput,dt_amp_model[Segment == 'HA']$Subtype)
+
+
+
+
+
+
+
+
+
+
+
+
+
+dt_amp_model <- transform(dt_amp_model, 
+                          generalized_Segment=as.numeric(Segment=="M"))
+
+fit.nb.amp_A = update(fit.nb.amp, ziformula=~generalized_Segment)
+
+
+fixef(fit.nb.amp_A)[["zi"]]
+
+
+
+summary(fit.nb.amp_A)
+simulationOutput <- simulateResiduals(fittedModel = fit.nb.amp_A, plot = T)
+simulateResiduals(fittedModel = fit.nb.amp_A, plot = T)
+
+
+
+
+dam  <- transform(dt_amp_model,
+                  read_count=scale(read_count,center=FALSE))
+
+
+
+
+
+
+fixef(fit.nb.amp)
+
+
+ff <-fixef(fit.nb.amp)$zi
+
+round(plogis(c(HA=unname(ff[1]),ff[-1]+ff[1])),3)
+
+plogis(-4.354)
+
+# fit.nb <- glmmTMB(mean_pos_coverag_round ~ concentration + 
+#                     Subtype +
+#                     Segment:Subtype+
+#                     Experiment+
+#                     Place+
+#                     (1 | name) +
+#                     (1 | Season),
+#                   data = dt_model, 
+#                   ziformula = ~ 1,
+#                   family = nbinom2)
+
+
+
+
+
+
+simulationOutput <- simulateResiduals(fittedModel = fit.nb.amp, plot = T)
+
+simulateResiduals(fittedModel = fit.nb.amp, plot = T)
+
+
+#Dispersion of the fitted model is not significant
+testDispersion(fit.nb.amp)
+testZeroInflation(simulationOutput)
+testResiduals(fit.nb.amp)
+
+#HOMOGENEITY OF VARIANCE IS MET FOR RANDOM EFFECTS
+testCategorical(simulationOutput,dt_amp_model$name)
+testCategorical(simulationOutput,dt_amp_model$Season)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

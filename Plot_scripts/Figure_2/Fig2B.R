@@ -1,7 +1,7 @@
 library(tidyverse)
 
 
-# setwd("path_to_Figure_2")
+setwd("/Users/anjohn/Desktop/euler/wastewater/Influenza/GitHub/IAV_wastewater/Plot_scripts/Figure_2/")
 source("helper_functions.R")
 
 

@@ -9,7 +9,8 @@ library(RColorBrewer)
 # setwd("path_to_Figure_3")
 
 #output of DataCleaning.R
-dt = fread("dt_Fig3B.tsv")
+dt = fread("dt_Fig3B_CH.tsv")
+clinical_level = "Clinical Data Europe"
 
 out_dir = "/Users/anjohn/Desktop/manuscripts/Influenza/Figures/"
 
@@ -36,13 +37,13 @@ dt_plot_long <- melt(dt,
 dt_plot_long$data_source <- factor(dt_plot_long$data_source, 
                                   levels = c("relative_abundance_ww_deconv_lin", 
                                              "relative_abundance_gisaid"), 
-                                  labels = c("Wastewater Data Geneva", "Clinical Data Europe"))
+                                  labels = c("Wastewater Data Geneva", clinical_level))
 
 
 #hack for coloring the unassigned fraction
 
 dt_unassaigned = dt_plot_long %>% 
-  group_by(week,year,data_source) %>% 
+  group_by(week,data_source) %>% 
   summarise(relative_abundance = round(1-sum(relative_abundance),3)) %>% 
   setDT()
 
@@ -100,6 +101,10 @@ Fig3A <- ggplot(dt_plot, aes(group=Clade))+
 Fig3A
 
 
+
+### 3B ####
+
+
 lm_models <- dt %>%
   filter(week != 52) %>% 
   group_by(Clade) %>%
@@ -154,7 +159,9 @@ Fig3B
 # ggsave(paste0(out_dir,"FIG3A.png"), 
 #        plot = Fig3A, width = 10, height = 5, units = "in", dpi = 600)
 # 
-# 
+
+
+
 # ggsave(paste0(out_dir,"FIG3B.png"), 
 #        plot = Fig3B, width = 8, height = 5, units = "in", dpi = 600)
 
